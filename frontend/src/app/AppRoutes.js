@@ -9,6 +9,7 @@ import Text2Audio from "../components/Text2Audio";
 import Plots from "../components/Plots";
 import Todo from "../components/Todo";
 import Chat from "../components/Chat";
+import {FileToText} from "../components/FileToText";
 
 const AppRouter = (props) => {
 
@@ -22,6 +23,7 @@ const AppRouter = (props) => {
         <Route path="/todo" exact component={Todo} />
         <Route path="/imageclassification" exact component={ImageClassification} />
         <Route path="/audio2text" exact component={Audio2Text} />
+        <Route path="/fileToText" exact component={FileToText} />
         <Route path="/text2audio" exact component={Text2Audio} />
         <Route path="/plots" exact component={Plots} />
         <Route path="/test" exact component={Blank} />
@@ -32,4 +34,4 @@ const AppRouter = (props) => {
   );
 }
 
-export default AppRouter;
+export default AppRouter; 
