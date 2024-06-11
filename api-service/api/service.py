@@ -4,7 +4,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
-from api.routers import imageclassification, audio2text, text2audio, plots, styletransfer
+from api.routers import imageclassification, audio2text, text2audio, plots, styletransfer, asr
 
 # Setup FastAPI app
 app = FastAPI(
@@ -41,3 +41,5 @@ app.include_router(audio2text.router, prefix="/audio2text")
 app.include_router(text2audio.router, prefix="/text2audio")
 app.include_router(plots.router, prefix="/plots")
 app.include_router(styletransfer.router, prefix="/styletransfer")
+app.include_router(asr.router, prefix="/asr")
+
