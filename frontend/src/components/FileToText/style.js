@@ -80,7 +80,12 @@ export const Button = styled.button`
 
 export const ConvertedContentContainer = styled.div`
    width : 40rem;
-   height: 30rem;
+   height : max-content;
+   max-height: 30rem;
    border-radius: 10px;
    border: 1px solid black;
+   padding : 2rem;
+   font-size : 1rem;
+   margin-top : 4rem;
+   overflow-y : scroll;
 `;
