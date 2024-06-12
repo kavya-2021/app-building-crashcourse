@@ -8,7 +8,7 @@ from fastapi import UploadFile, HTTPException, status
 router = APIRouter()
 
 import tempfile
-import whisper
+#import whisper
 
 async def transcribe_audio_or_video(file: bytes) -> str:
     if not file:
@@ -23,25 +23,26 @@ async def transcribe_audio_or_video(file: bytes) -> str:
     except Exception as e:
         raise RuntimeError(f"Failed to create temporary file: {str(e)}")
 
-    try:
-        # Load the Whisper model
-        model = whisper.load_model("base")
-    except Exception as e:
-        os.remove(temp_file_path)
-        raise RuntimeError(f"Failed to load Whisper model: {str(e)}")
+    # try:
+    #     # Load the Whisper model
+    #     model = whisper.load_model("base")
+    # except Exception as e:
+    #     os.remove(temp_file_path)
+    #     raise RuntimeError(f"Failed to load Whisper model: {str(e)}")
 
-    try:
-        # Transcribe the audio/video file
-        result = model.transcribe(temp_file_path)
-    except Exception as e:
-        os.remove(temp_file_path)
-        raise RuntimeError(f"Transcription failed: {str(e)}")
+    # try:
+    #     # Transcribe the audio/video file
+    #     result = model.transcribe(temp_file_path)
+    # except Exception as e:
+    #     os.remove(temp_file_path)
+    #     raise RuntimeError(f"Transcription failed: {str(e)}")
 
-    # Clean up the temporary file
-    os.remove(temp_file_path)
+    # # Clean up the temporary file
+    # os.remove(temp_file_path)
+    # TODO: implement transcription
+    # return result.get('text', 'Transcription failed')
+    return "Transcription results here."
 
-    return result.get('text', 'Transcription failed')
-    
 
 @router.post("/transcribe")
 async def transcribe_endpoint(file: UploadFile = File(...)):
